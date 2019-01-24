@@ -1,0 +1,16 @@
+Prompt: Try and apply the work-span model to your design;
+ what sort of speedup should we expect if we move to a machine with P cores?
+ Are there limits to the speedup we can observe? Does reality match expectations?
+ Write up your analysis and results and hand them in along with the program.
+
+
+ Response:
+ The serial program and Parallel program ran at differing times. With a work span model design, The speedup we should see with P cores
+ should give us some linear speedup.There are going to be limits to the speed up that we observe.
+ The reason being is the same amount of work is being done across these P workers. Speed up will be no greater than P.
+ Without an increase of work there should be speedup, but because we're on a Java virtual machine there are limits.
+ The limits also come from teh ability to only have P cores and limited workers on those cores.
+ My reality did not match my predictions. I did not experience any linear speedup.
+ In fact, My serializable runs faster than my parallel one. However by changing my threshold for my threads and recursive action and changing
+ number of threads in my forkJoinPool did show slight improvement over past versions of my forkJoinPool class.
+ The reason it does not run faster is due to what is being parallelized in my methods.
